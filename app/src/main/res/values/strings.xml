@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">paijoo</string>
+    <string name="send_1">Send 1</string>
+    <string name="send_2">Send 2</string>
+    <string name="msg_box_hint">Abc</string>
+</resources>
