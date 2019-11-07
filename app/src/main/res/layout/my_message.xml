@@ -2,23 +2,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clipToPadding="false"
     android:paddingVertical="10dp"
-    android:paddingRight="10dp"
-    android:paddingLeft="60dp"
-    android:clipToPadding="false">
+    android:paddingLeft="100dp"
+    android:paddingRight="10dp">
 
     <TextView
+        android:id="@+id/message_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/message_body"
-        android:background="@drawable/my_message"
-        android:fontFamily="@font/cyber_punk_waifus"
-        android:textColor="#fff"
-        android:padding="10dp"
-        android:elevation="2dp"
-        android:textSize="18dp"
         android:layout_alignParentRight="true"
+        android:background="@drawable/my_message"
+        android:elevation="2dp"
+        android:fontFamily="@font/cyber_punk_waifus"
+        android:padding="10dp"
         android:text="Placeholder message"
-        />
+        android:textColor="#fff"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="7dp"
+        android:layout_toStartOf="@+id/message_body"
+        android:layout_toLeftOf="@+id/message_body"
+        android:gravity="right"
+        android:text="19:00" />
 
 </RelativeLayout>

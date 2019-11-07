@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
         LinearLayout msg_view = (LinearLayout) findViewById(R.id.msg_view);
+        final ScrollView scrl_view = (ScrollView) findViewById(R.id.scrl);
         EditText content = findViewById(R.id.message_box);
         Message new_msg = new Message("User1", content.getText().toString());
 
@@ -38,10 +40,18 @@ public class MainActivity extends AppCompatActivity {
 
         content.setText("");
 
+        // Scroll the scroll view down
+        scrl_view.post(new Runnable() {
+            public void run() {
+                scrl_view.fullScroll(scrl_view.FOCUS_DOWN);
+            }
+        });
+
     }
 
     public void sendMessage2(View view) {
         LinearLayout msg_view = (LinearLayout) findViewById(R.id.msg_view);
+        final ScrollView scrl_view = (ScrollView) findViewById(R.id.scrl);
         EditText content = findViewById(R.id.message_box);
         Message new_msg = new Message("User2", content.getText().toString());
 
@@ -54,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         msg_view.addView(view7);
 
         content.setText("");
+
+        // Scroll the scroll view down
+        scrl_view.post(new Runnable() {
+            public void run() {
+                scrl_view.fullScroll(scrl_view.FOCUS_DOWN);
+            }
+        });
 
     }
 }
