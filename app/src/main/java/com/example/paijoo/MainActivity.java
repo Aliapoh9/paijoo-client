@@ -22,6 +22,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        loadHistory();
+    }
+
+    private Message[] messageHistory = {new Message("User1", "hello"), new Message("User2", "hi there")};
+
+    public void loadHistory()
+    {
+        LinearLayout msg_view = (LinearLayout) findViewById(R.id.msg_view);
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        for (Message msg : messageHistory)
+        {
+            View new_msg_view = null;
+            if (msg.get_sender() != "User1")
+            {
+                new_msg_view = inflater.inflate(R.layout.other_message, null);
+                TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
+                new_text.setText(msg.get_content());
+            }
+            else
+            {
+                new_msg_view = inflater.inflate(R.layout.my_message, null);
+                TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
+                new_text.setText(msg.get_content());
+            }
+
+            msg_view.addView(new_msg_view);
+
+        }
     }
 
     public void sendMessage(View view) {
@@ -31,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
         Message new_msg = new Message("User1", content.getText().toString());
 
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view7 = inflater.inflate(R.layout.my_message, null);
+        View new_msg_view = inflater.inflate(R.layout.my_message, null);
 
-        TextView new_text = (TextView) view7.findViewById(R.id.message_body);
+        TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
         new_text.setText(new_msg.get_content());
 
-        msg_view.addView(view7);
+        msg_view.addView(new_msg_view);
 
         content.setText("");
 
@@ -56,12 +84,12 @@ public class MainActivity extends AppCompatActivity {
         Message new_msg = new Message("User2", content.getText().toString());
 
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view7 = inflater.inflate(R.layout.other_message, null);
+        View new_msg_view = inflater.inflate(R.layout.other_message, null);
 
-        TextView new_text = (TextView) view7.findViewById(R.id.message_body);
+        TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
         new_text.setText(new_msg.get_content());
 
-        msg_view.addView(view7);
+        msg_view.addView(new_msg_view);
 
         content.setText("");
 
