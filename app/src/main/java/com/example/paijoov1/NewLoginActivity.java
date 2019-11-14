@@ -44,7 +44,7 @@ public class NewLoginActivity extends AppCompatActivity {
         String checkbox = preferences.getString("remember","");
 
         if (checkbox.equals("true")) {
-            Toast.makeText(this,"broken",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"brok23423en",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent (this,MainActivity.class);
             startActivity(intent);
             finish();
