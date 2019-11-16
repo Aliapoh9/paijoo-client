@@ -25,7 +25,7 @@ public class ChatFragment extends Fragment {
     public Button send_1;
     public Button send_2;
     public LinearLayout msg_view;
-    private Message[] messageHistory = {new Message("User1", "hello"), new Message("User2", "hi there")};
+    private Message[] messageHistory = {new Message("User1", "123"), new Message("User2", "hi there")};
 
     public ChatFragment() {
         // Required empty public constructor
