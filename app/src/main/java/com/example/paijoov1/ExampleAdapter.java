@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import ng.com.obkm.bottomnavviewwithfragments.ChatFragment;
-
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
     private ArrayList<ExampleItem> mExampleList;
     private OnItemClickListener mListener;
@@ -37,7 +35,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
-            mTextView2 = itemView.findViewById(R.id.textView2);
+            mTextView2 = itemView.findViewById(R.id.time_view);
             mDeleteImage = itemView.findViewById(R.id.image_delete);
             mDeleteImage.setAlpha(0);
 

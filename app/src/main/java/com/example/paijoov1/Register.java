@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +43,7 @@ public class Register extends AppCompatActivity {
         r_password = findViewById(R.id.text_input_password);
 
         String emailInput = r_email.getEditText().getText().toString().trim();
-        temp = findViewById(R.id.textView3);
+        temp = findViewById(R.id.time_view);
         temp.setText(emailInput);
 
         configureNextButton();
