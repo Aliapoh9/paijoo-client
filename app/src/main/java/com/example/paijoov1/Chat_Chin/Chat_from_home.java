@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.paijoov1.Chat_Chin.Message;
+
 
 public class Chat_from_home extends AppCompatActivity {
 

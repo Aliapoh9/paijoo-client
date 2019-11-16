@@ -13,8 +13,8 @@ import android.widget.Switch;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.paijoov1.NewLoginActivity;
-import com.example.paijoov1.SetPinLock;
+import com.example.paijoov1.Login_Screen.NewLoginActivity;
+import com.example.paijoov1.PinLock.SetPinLock;
 import com.example.paijoov1.R;
 
 import static android.content.Context.MODE_PRIVATE;
