@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PinLock.PinLock"></activity>
+        <activity android:name=".Add_friend.add_friend"></activity>
+        <activity android:name=".PinLock.PinLock" />
         <activity android:name=".PinLock.SetPinLock" />
-
         <activity android:name=".Home_with_name" />
         <activity android:name=".Chat_Chin.Chat_from_home" />
         <activity
@@ -23,8 +23,7 @@
         <!-- android:label="@string/title_activity_main_menu2"></activity> -->
         <activity
             android:name=".test_register"
-            android:theme="@style/AppTheme" />
-        <!-- <activity -->
+            android:theme="@style/AppTheme" /> <!-- <activity -->
         <!-- android:name=".ui.login.LoginActivity" -->
         <!-- android:label="@string/title_activity_login" /> -->
         <activity android:name=".Login_Screen.NewLoginActivity">

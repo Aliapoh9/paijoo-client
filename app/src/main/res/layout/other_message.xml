@@ -34,8 +34,9 @@
         android:layout_marginStart="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        tools:srcCompat="@tools:sample/avatars[14]" />
+        app:srcCompat="@drawable/girl_in_chat">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/time_view"
