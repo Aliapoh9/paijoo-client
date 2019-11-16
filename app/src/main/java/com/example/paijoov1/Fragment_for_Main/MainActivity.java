@@ -24,7 +24,7 @@ import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 public class MainActivity extends AppCompatActivity {
 
 
-    //final Fragment fragment1 = new HomeFragment();
+
     final Fragment fragment1 = new HomeFragment2();
     final Fragment fragment2 = new ChatFragment();
     final Fragment fragment3 = new FeedsFragment();
