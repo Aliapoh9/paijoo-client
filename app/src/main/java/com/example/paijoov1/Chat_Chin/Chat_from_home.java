@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Chat_Chin;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.paijoov1.Conversation;
+import com.example.paijoov1.PaijooService;
+import com.example.paijoov1.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
