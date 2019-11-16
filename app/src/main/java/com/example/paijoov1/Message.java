@@ -11,6 +11,10 @@ public class Message {
         this.content = c;
     }
 
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String get_content()
     {
         return content;
