@@ -34,6 +34,7 @@ public class NewLoginActivity extends AppCompatActivity {
                 AppCompatDelegate.MODE_NIGHT_UNSPECIFIED);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_login);
+
         email = findViewById(R.id.username_login);
         password = findViewById(R.id.password_login);
         remember = findViewById(R.id.remember);
@@ -43,13 +44,25 @@ public class NewLoginActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
         String checkbox = preferences.getString("remember","");
 
-        if (checkbox.equals("true")) {
-            Toast.makeText(this,"brok23423en",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent (this,MainActivity.class);
+        SharedPreferences pinlock = getSharedPreferences("check_pin",MODE_PRIVATE);
+        String check_pin = pinlock.getString("password","");
+
+        SharedPreferences check_for_pin = getSharedPreferences("check_for_pin",MODE_PRIVATE);
+        String pin = check_for_pin.getString("checked","");
+
+        if (checkbox.equals("true") && check_pin.equals("true")) {
+            Toast.makeText(this,"Enter with Password",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent (this,PinLock.class);
             startActivity(intent);
-            finish();
+            //finish();
             //Toast.makeText(getApplicationContext(),"Wrong?",Toast.LENGTH_SHORT).show();
         }
+        else if (checkbox.equals("true") && pin.equals("false")){
+            Intent intent = new Intent (this,MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(),"No Password",Toast.LENGTH_SHORT).show();
+        }
+
 
         else if (checkbox.equals("false")){
             Toast.makeText(getApplicationContext(),"Please sign in",Toast.LENGTH_SHORT).show();

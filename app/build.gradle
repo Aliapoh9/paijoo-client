@@ -47,8 +47,13 @@ dependencies {
     implementation 'com.github.Trendyol:BubbleScrollBar:0.1'
     implementation 'androidx.cardview:cardview'
     implementation 'androidx.recyclerview:recyclerview'
+    implementation 'com.andrognito.patternlockview:patternlockview:1.0.0'
+    // Optional, for RxJava2 adapter
+    implementation 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
 
 
+    implementation 'com.android.support:appcompat-v7:29.+'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

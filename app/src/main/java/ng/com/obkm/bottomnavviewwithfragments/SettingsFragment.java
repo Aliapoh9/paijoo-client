@@ -10,18 +10,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.paijoov1.NewLoginActivity;
+import com.example.paijoov1.SetPinLock;
 import com.example.paijoov1.R;
-import ng.com.obkm.bottomnavviewwithfragments.SettingsActivity;
+
 import static android.content.Context.MODE_PRIVATE;
-import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 
 /**
@@ -32,6 +28,7 @@ public class SettingsFragment extends Fragment {
     private Button logout_btn;
 
     private  Switch switch2;
+    private  Switch password_switch;
     public boolean theme_check;
     public int count;
 
@@ -45,7 +42,11 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         switch2 = view.findViewById(R.id.switch2);
+        password_switch = view.findViewById(R.id.switch3);
         logout_btn = view.findViewById(R.id.logout_btn);
+
+        SharedPreferences check_for_pin = getActivity().getSharedPreferences("check_for_pin",MODE_PRIVATE);
+        String check_pin = check_for_pin.getString("checked","");
 
 
         SharedPreferences preferences =getActivity().getSharedPreferences("theme",MODE_PRIVATE);
@@ -57,6 +58,13 @@ public class SettingsFragment extends Fragment {
             switch2.setChecked(false);
         }
 
+        if (check_pin.equals("true")) {
+            password_switch.setChecked(true);
+        }
+        else{
+            password_switch.setChecked(false);
+        }
+
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +72,13 @@ public class SettingsFragment extends Fragment {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("remember","false");
                 editor.commit();
+
+                SharedPreferences check_for_pin = getActivity().getSharedPreferences("check_for_pin",MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = check_for_pin.edit();
+                editor2.putString("pin","false");
+                editor2.commit();
+
+
                 Intent intent = new Intent(getActivity(), NewLoginActivity.class);
                 startActivity(intent);
             }
@@ -85,11 +100,41 @@ public class SettingsFragment extends Fragment {
 
                 } else {
                     //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
                     SharedPreferences preferences = getActivity().getSharedPreferences("theme", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("mode","false");
                     editor.commit();
+
+
+
+                }
+            }
+        });
+        password_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+                    SharedPreferences check_for_pin = getActivity().getSharedPreferences("check_for_pin",MODE_PRIVATE);
+                    SharedPreferences.Editor editor2 = check_for_pin.edit();
+                    editor2.putString("checked","true");
+                    editor2.commit();
                     restartApp();
+                    //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    Intent pinlock = new Intent(getActivity().getApplicationContext(), SetPinLock.class);
+                    //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    startActivity(pinlock);
+
+
+                } else {
+                    SharedPreferences check_for_pin = getActivity().getSharedPreferences("check_for_pin",MODE_PRIVATE);
+                    SharedPreferences.Editor editor2 = check_for_pin.edit();
+                    editor2.putString("checked","false");
+                    editor2.commit();
+                    restartApp();
+                    //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
                 }
             }

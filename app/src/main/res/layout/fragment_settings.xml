@@ -11,6 +11,20 @@
         android:layout_height="match_parent">
 
         <Switch
+            android:id="@+id/switch3"
+            android:layout_width="138dp"
+            android:layout_height="31dp"
+            android:text="Password"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.338" />
+
+        <Switch
             android:id="@+id/switch2"
             android:layout_width="138dp"
             android:layout_height="31dp"
