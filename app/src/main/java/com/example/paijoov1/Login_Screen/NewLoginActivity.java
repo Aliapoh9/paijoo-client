@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Login_Screen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -13,9 +13,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import com.example.paijoov1.PinLock.PinLock;
+import com.example.paijoov1.R;
+import com.example.paijoov1.test_register;
 import com.google.android.material.textfield.TextInputEditText;
-import ng.com.obkm.bottomnavviewwithfragments.SettingsActivity;
-import ng.com.obkm.bottomnavviewwithfragments.MainActivity;
+
+import com.example.paijoov1.Fragment_for_Main.MainActivity;
 
 public class NewLoginActivity extends AppCompatActivity {
 
@@ -52,7 +55,7 @@ public class NewLoginActivity extends AppCompatActivity {
 
         if (checkbox.equals("true") && check_pin.equals("true")) {
             Toast.makeText(this,"Enter with Password",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent (this,PinLock.class);
+            Intent intent = new Intent (this, PinLock.class);
             startActivity(intent);
             //finish();
             //Toast.makeText(getApplicationContext(),"Wrong?",Toast.LENGTH_SHORT).show();
@@ -61,6 +64,7 @@ public class NewLoginActivity extends AppCompatActivity {
             Intent intent = new Intent (this,MainActivity.class);
             startActivity(intent);
             Toast.makeText(getApplicationContext(),"No Password",Toast.LENGTH_SHORT).show();
+            finish();
         }
 
 
@@ -81,7 +85,7 @@ public class NewLoginActivity extends AppCompatActivity {
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regis = new Intent(getApplicationContext(),test_register.class);
+                Intent regis = new Intent(getApplicationContext(), test_register.class);
                 startActivity(regis);
             }
         });

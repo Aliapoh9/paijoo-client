@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Chat_Chin;
 
 public class Message {
 

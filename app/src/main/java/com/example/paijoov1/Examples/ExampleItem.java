@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Examples;
 
 public class ExampleItem {
     private int mImageResource;

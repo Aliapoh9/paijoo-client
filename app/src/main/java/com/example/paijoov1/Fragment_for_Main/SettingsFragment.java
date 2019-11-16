@@ -1,4 +1,4 @@
-package ng.com.obkm.bottomnavviewwithfragments;
+package com.example.paijoov1.Fragment_for_Main;
 
 
 import android.content.Intent;
@@ -61,7 +61,7 @@ public class SettingsFragment extends Fragment {
         if (check_pin.equals("true")) {
             password_switch.setChecked(true);
         }
-        else{
+        else if(check_pin.equals("false")){
             password_switch.setChecked(false);
         }
 
@@ -106,8 +106,7 @@ public class SettingsFragment extends Fragment {
                     editor.putString("mode","false");
                     editor.commit();
 
-
-
+                    restartApp(); //testing
                 }
             }
         });
@@ -120,7 +119,7 @@ public class SettingsFragment extends Fragment {
                     SharedPreferences.Editor editor2 = check_for_pin.edit();
                     editor2.putString("checked","true");
                     editor2.commit();
-                    restartApp();
+                    //restartApp();
                     //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     Intent pinlock = new Intent(getActivity().getApplicationContext(), SetPinLock.class);
                     //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);

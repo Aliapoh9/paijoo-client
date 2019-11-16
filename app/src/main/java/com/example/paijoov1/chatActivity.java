@@ -7,9 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.paijoov1.Login_Screen.NewLoginActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class chatActivity extends AppCompatActivity {
@@ -32,7 +32,7 @@ public class chatActivity extends AppCompatActivity {
 
                 //finish(); used to exit app
 
-                Intent intent = new Intent(getApplicationContext(),NewLoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NewLoginActivity.class);
                 startActivity(intent);
 
             }

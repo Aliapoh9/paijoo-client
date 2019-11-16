@@ -1,33 +1,20 @@
-package ng.com.obkm.bottomnavviewwithfragments.home;
+package com.example.paijoov1.Home;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.paijoov1.ExampleAdapter;
-import com.example.paijoov1.ExampleItem;
-import com.example.paijoov1.MyAdapter;
+import com.example.paijoov1.Examples.ExampleAdapter;
+import com.example.paijoov1.Examples.ExampleItem;
 import com.example.paijoov1.R;
-import com.trendyol.bubblescrollbarlib.BubbleScrollBar;
-import com.trendyol.bubblescrollbarlib.BubbleTextProvider;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import ng.com.obkm.bottomnavviewwithfragments.ChatFragment;
 
 //import ng.com.obkm.bottomnavviewwithfragments.R;
 

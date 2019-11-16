@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Chat_Chin;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.paijoov1.Chat_Chin.Message;
+import com.example.paijoov1.R;
 
 
 public class Chat_from_home extends AppCompatActivity {

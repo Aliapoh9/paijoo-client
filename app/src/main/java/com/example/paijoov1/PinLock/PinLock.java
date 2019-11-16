@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.PinLock;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,10 +10,11 @@ import android.widget.Toast;
 import com.andrognito.patternlockview.PatternLockView;
 import com.andrognito.patternlockview.listener.PatternLockViewListener;
 import com.andrognito.patternlockview.utils.PatternLockUtils;
+import com.example.paijoov1.R;
 
 import java.util.List;
 
-import ng.com.obkm.bottomnavviewwithfragments.MainActivity;
+import com.example.paijoov1.Fragment_for_Main.MainActivity;
 
 public class PinLock extends AppCompatActivity implements PatternLockViewListener {
 

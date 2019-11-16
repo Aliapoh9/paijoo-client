@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Examples;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.paijoov1.Chat_Chin.Chat_from_home;
+import com.example.paijoov1.R;
 
 import java.util.ArrayList;
 

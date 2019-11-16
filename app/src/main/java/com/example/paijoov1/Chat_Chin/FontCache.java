@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Chat_Chin;
 
 import android.content.Context;
 import android.graphics.Typeface;

@@ -1,4 +1,4 @@
-package ng.com.obkm.bottomnavviewwithfragments.home;
+package com.example.paijoov1.Home;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;

@@ -1,4 +1,4 @@
-package ng.com.obkm.bottomnavviewwithfragments;
+package com.example.paijoov1.Fragment_for_Main;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,8 +17,7 @@ import com.example.paijoov1.R;
 import android.view.MenuItem;
 
 
-import ng.com.obkm.bottomnavviewwithfragments.home.HomeFragment;
-import ng.com.obkm.bottomnavviewwithfragments.home.HomeFragment2;
+import com.example.paijoov1.Home.HomeFragment2;
 
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
@@ -28,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
     //final Fragment fragment1 = new HomeFragment();
     final Fragment fragment1 = new HomeFragment2();
     final Fragment fragment2 = new ChatFragment();
-    //final Fragment fragment2 = new all_chatFragment();
-    final Fragment fragment3 = new NotificationsFragment();
+    final Fragment fragment3 = new FeedsFragment();
     final Fragment fragment4 = new SettingsFragment();
     //final Fragment fragment4 = new Settings_demo();
     final FragmentManager fm = getSupportFragmentManager();
@@ -106,27 +104,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            Toast.makeText(getApplicationContext(),"Pressed Settings",Toast.LENGTH_SHORT).show();
-            Intent settings = new Intent(this,SettingsActivity.class);
-            startActivity(settings);
-            //startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    */
 
 
     @Override

@@ -1,7 +1,6 @@
-package ng.com.obkm.bottomnavviewwithfragments;
+package com.example.paijoov1.Fragment_for_Main;
 
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.content.Context;
 
-import com.example.paijoov1.Message;
+import com.example.paijoov1.Chat_Chin.Message;
 import com.example.paijoov1.R;
 
 

@@ -1,61 +1,31 @@
-package ng.com.obkm.bottomnavviewwithfragments.home;
+package com.example.paijoov1.Home;
 
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 //import ng.com.obkm.bottomnavviewwithfragments.R;
-import com.example.paijoov1.MyAdapter;
 import com.example.paijoov1.R;
 
-import ng.com.obkm.bottomnavviewwithfragments.ChatFragment;
-import ng.com.obkm.bottomnavviewwithfragments.MainActivity;
-import ng.com.obkm.bottomnavviewwithfragments.SettingsFragment;
+import com.example.paijoov1.Fragment_for_Main.ChatFragment;
 
-import com.example.paijoov1.homeActivity;
-import com.koushikdutta.ion.Ion;
 import com.trendyol.bubblescrollbarlib.BubbleScrollBar;
 import com.trendyol.bubblescrollbarlib.BubbleTextProvider;
-
-import static android.app.Activity.RESULT_OK;
 
 
 public class HomeFragment extends Fragment  {

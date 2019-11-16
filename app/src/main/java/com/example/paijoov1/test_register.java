@@ -9,16 +9,14 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.paijoov1.Upload_Pic.getting_started;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Pattern;
-
-import ng.com.obkm.bottomnavviewwithfragments.MainActivity;
 
 public class test_register extends AppCompatActivity {
     private static final Pattern PASSWORD_PATTERN =
@@ -58,7 +56,7 @@ public class test_register extends AppCompatActivity {
                     editor.putString("remember","true");
                     editor.commit();
 
-                    Intent intent = new Intent(getApplicationContext(),getting_started.class);
+                    Intent intent = new Intent(getApplicationContext(), getting_started.class);
                     startActivity(intent);
                 }
 

@@ -1,4 +1,4 @@
-package ng.com.obkm.bottomnavviewwithfragments;
+package com.example.paijoov1.Fragment_for_Main;
 
 
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import com.example.paijoov1.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NotificationsFragment extends Fragment {
+public class FeedsFragment extends Fragment {
 
 
-    public NotificationsFragment() {
+    public FeedsFragment() {
         // Required empty public constructor
     }
 
@@ -22,7 +22,7 @@ public class NotificationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_notifications, container, false);
+        View view = inflater.inflate(R.layout.fragment_feeds, container, false);
 
         return view;
     }

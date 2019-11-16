@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import ng.com.obkm.bottomnavviewwithfragments.MainActivity;
+import com.example.paijoov1.Login_Screen.NewLoginActivity;
 
 /**
  * Created by ssaurel on 02/12/2016.

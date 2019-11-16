@@ -6,7 +6,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ng.com.obkm.bottomnavviewwithfragments.MainActivity">
+    tools:context=".Fragment_for_Main.MainActivity">
 
     <!-- Appbar -->
     <com.google.android.material.appbar.AppBarLayout

@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Upload_Pic;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 
 import com.example.paijoov1.Fragment_for_Main.MainActivity;
+import com.example.paijoov1.R;
 
 public class getting_started extends AppCompatActivity {
 

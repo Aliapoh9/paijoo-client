@@ -1,4 +1,4 @@
-package ng.com.obkm.bottomnavviewwithfragments.home;
+package com.example.paijoov1.Home;
 
 public class HomeItem {
     public String desc;

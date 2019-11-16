@@ -1,4 +1,4 @@
-package com.example.paijoov1;
+package com.example.paijoov1.Home;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import com.example.paijoov1.Fragment_for_Main.ChatFragment;
+import com.example.paijoov1.R;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
