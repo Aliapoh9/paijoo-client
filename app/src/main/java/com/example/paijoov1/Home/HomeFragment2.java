@@ -3,10 +3,12 @@ package com.example.paijoov1.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,7 +62,8 @@ public class HomeFragment2 extends Fragment  {
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-
+                Log.d("test", "onItemClick: index = " + position);
+                //Toast.makeText(getContext(),Log.d("test", "onItemClick: index = " + position),Toast.LENGTH_SHORT).show();
             }
 
             @Override

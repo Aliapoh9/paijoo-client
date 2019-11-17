@@ -62,6 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder (@NonNull View itemView){
             super(itemView);
             txt_name = (TextView)itemView.findViewById(R.id.txt_name);
+            itemView.setOnClickListener(this);
 
 
 
@@ -77,6 +78,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             if(mListener!=null)
                 mListener.onItemClick(getAdapterPosition());
             v.getContext().startActivity(new Intent(v.getContext(), ChatFragment.class));
+
 
         }
     }
