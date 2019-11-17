@@ -39,7 +39,7 @@
         android:layout_height="27dp"
         android:text="Bey"
         android:textSize="24sp"
-        android:textStyle="bold"
+        style="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.335"

@@ -61,6 +61,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             //ExampleAdapter.this.mListener.onDeleteClick(position);
+                            //v.getContext().startActivity(new Intent(v.getContext(), Chat_from_home.class));
                             v.getContext().startActivity(new Intent(v.getContext(), Chat_from_home.class));
                         }
                     }

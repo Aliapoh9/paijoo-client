@@ -20,6 +20,15 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
         this.home_list = list;
     }
 
+    public interface ItemClickListener{
+        void onItemClick(int position);
+    }
+    ItemClickListener mListener;
+
+    public void setItemClickListener(ItemClickListener listener){
+        mListener = listener;
+    }
+
     @NonNull
     @Override
     public HomeRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,6 +44,8 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
         holder.desc.setText(desc);
         holder.image.setImageResource(id);
+
+        //holder.setItem(position);
 
 
     }
