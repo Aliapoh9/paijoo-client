@@ -62,7 +62,7 @@ public class HomeFragment2 extends Fragment  {
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Log.d("test", "onItemClick: index = " + position);
+                //Log.d("test", "onItemClick: index = " + position);
                 //Toast.makeText(getContext(),Log.d("test", "onItemClick: index = " + position),Toast.LENGTH_SHORT).show();
             }
 
