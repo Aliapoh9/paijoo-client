@@ -12,12 +12,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.paijoov1.Cache;
 import com.example.paijoov1.Conversation;
 import com.example.paijoov1.PaijooService;
 import com.example.paijoov1.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -31,7 +33,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Chat_from_home extends AppCompatActivity {
 
-    private ArrayList<Conversation> convoList;
+    private ArrayList<Conversation> convoList = new ArrayList<Conversation>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,23 @@ public class Chat_from_home extends AppCompatActivity {
         setContentView(R.layout.chat_from_home);
         loadMessagesHis();
     }
+
+    public void saveToCache(String key, Object ob)
+    {
+        try {
+            Cache.writeObject(this, key, ob);
+            Log.d("SAVE-COMPLETE", "saved object with the key: " + key);
+        }
+        catch (IOException e)
+        {
+            Log.e("SAVE-ERROR", e.getMessage());
+        }
+        catch (Exception e)
+        {
+            Log.e("SAVE-ERROR", e.getMessage());
+        }
+    }
+
 
     public void loadConversation(int cID) {
         LinearLayout msg_view = (LinearLayout) findViewById(R.id.msg_view);
@@ -67,42 +86,58 @@ public class Chat_from_home extends AppCompatActivity {
                 timeStamp.setText(msg.getCreated_at());
                 new_text.setText(msg.getContent().getContent());
             }
-
             msg_view.addView(new_msg_view);
         }
     }
 
     public void loadMessagesHis()
     {
-        Retrofit rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create()).build();
-
-        PaijooService pService = rf.create(PaijooService.class);
-
-        Call<ArrayList<Conversation>> call = pService.getMes(1);
-        call.enqueue(new Callback<ArrayList<Conversation>>()
+        try {
+            convoList.add((Conversation) Cache.readObject(this, "1"));
+            Log.d("cache-success", "success!!!");
+            loadConversation(0);
+        }
+        catch (IOException e)
         {
-             @Override
-             public void onResponse(Call<ArrayList<Conversation>> call, Response<ArrayList<Conversation>> response) {
-                 if (response.isSuccessful())
-                 {
-                     Log.d("debussy", "Who dares, wins");
-                     convoList = response.body();
-                    // Log.w("2.0 getFeed > Full json res wrapped in pretty printed gson => ",new GsonBuilder().setPrettyPrinting().create().toJson(response));
-                     //messageHistory[0].setContent(MessageMap.get(0).getMessages().get(0).getContent().getContent());
-                     loadConversation(0);
-                 }
-                 else
-                 {
-                     Log.d("debussy", "400..");
-                 }
-             }
+            Log.e("cache-failureIO", e.getMessage());
+            Retrofit rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
+                    .addConverterFactory(GsonConverterFactory.create()).build();
 
-             @Override
-             public void onFailure(Call<ArrayList<Conversation>> call, Throwable t) {
-                 Log.d("debussy", "Failed" + t.getMessage() );
-             }
-         });
+            PaijooService pService = rf.create(PaijooService.class);
+
+            Call<ArrayList<Conversation>> call = pService.getMes(1);
+            call.enqueue(new Callback<ArrayList<Conversation>>()
+            {
+                @Override
+                public void onResponse(Call<ArrayList<Conversation>> call, Response<ArrayList<Conversation>> response) {
+                    if (response.isSuccessful())
+                    {
+                        Log.d("debussy", "Who dares, wins");
+                        convoList = response.body();
+                        for (Conversation c : convoList)
+                        {
+                            saveToCache(Integer.toString(c.getConversationId()), c);
+                        }
+                        // Log.w("2.0 getFeed > Full json res wrapped in pretty printed gson => ",new GsonBuilder().setPrettyPrinting().create().toJson(response));
+                        //messageHistory[0].setContent(MessageMap.get(0).getMessages().get(0).getContent().getContent());
+                        loadConversation(0);
+                    }
+                    else
+                    {
+                        Log.d("debussy", "400..");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<Conversation>> call, Throwable t) {
+                    Log.d("debussy", "Failed" + t.getMessage() );
+                }
+            });
+        }
+        catch (Exception e)
+        {
+            Log.e("cache-failureOTHER", e.getMessage());
+        }
 
     }
 

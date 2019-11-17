@@ -3,10 +3,11 @@ package com.example.paijoov1;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Conversation {
+public class Conversation implements Serializable {
     @SerializedName("messages")
     @Expose
     private ArrayList<Messages> messages = null;
@@ -19,7 +20,7 @@ public class Conversation {
 
 
 
-    public static class Messages {
+    public static class Messages implements Serializable {
 
         @SerializedName("id")
         @Expose
@@ -50,7 +51,7 @@ public class Conversation {
         private Integer conversation_id;
 
 
-        public static class TextContent {
+        public static class TextContent implements Serializable{
 
             @SerializedName("id")
             @Expose
