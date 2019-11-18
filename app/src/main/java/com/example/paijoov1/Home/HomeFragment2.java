@@ -45,9 +45,10 @@ public class HomeFragment2 extends Fragment  {
         //scaleImage(image_box);
 
         mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem(R.drawable.boy, "Line 1", "Line 2"));
-        mExampleList.add(new ExampleItem(R.drawable.girl, "Line 3", "Line 4"));
-        mExampleList.add(new ExampleItem(R.drawable.man, "Line 5", "Line 6"));
+        mExampleList.add(new ExampleItem(R.drawable.boy, "Bob", "Back End Developer"));
+        mExampleList.add(new ExampleItem(R.drawable.man, "Chin", "Front End Developer"));
+        mExampleList.add(new ExampleItem(R.drawable.girl, "Rat", "Monopoly Expert"));
+        mExampleList.add(new ExampleItem(R.drawable.girl, "Toon", "Monopoly Expert"));
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
