@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
 import com.example.paijoov1.R;
 
 /**
@@ -13,6 +16,7 @@ import com.example.paijoov1.R;
  */
 public class FeedsFragment extends Fragment {
 
+    private WebView webView;
 
     public FeedsFragment() {
         // Required empty public constructor
@@ -23,6 +27,11 @@ public class FeedsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
+        webView = view.findViewById(R.id.webview);
+        webView.setWebViewClient(new WebViewClient());
+        //webView.loadUrl("https://edition.cnn.com/");
+        //webView.loadUrl("https://www.bbc.com/");
+        webView.loadUrl("https://www.bangkokpost.com/");
 
         return view;
     }
