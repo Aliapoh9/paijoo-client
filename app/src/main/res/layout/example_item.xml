@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
+    android:theme="@style/MyTheme"
     app:cardCornerRadius="4dp">
 
     <RelativeLayout
@@ -26,7 +27,6 @@
             android:layout_marginTop="3dp"
             android:layout_toEndOf="@+id/imageView"
             android:text="Line 1"
-            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -37,10 +37,8 @@
             android:layout_below="@+id/textView"
             android:layout_marginStart="10dp"
             android:layout_marginTop="6dp"
-
             android:layout_toEndOf="@+id/imageView"
             android:text="Line 2"
-            android:textColor="@color/colorblack"
             android:textSize="15sp"
 
             />

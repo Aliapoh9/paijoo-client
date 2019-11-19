@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,12 +18,13 @@ import android.widget.Toast;
 
 import com.example.paijoov1.Fragment_for_Main.MainActivity;
 import com.example.paijoov1.R;
-
+import com.example.paijoov1.Home.HomeFragment2;
 public class getting_started extends AppCompatActivity {
 
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
     private ImageView upload_image;
+    private ImageView circleImageView;
     private Button upload_btn;
     private Button continue_btn;
 
@@ -35,6 +37,7 @@ public class getting_started extends AppCompatActivity {
         continue_btn = findViewById(R.id.continue_btn);
         upload_image =findViewById(R.id.upload_image);
         upload_btn = findViewById(R.id.upload_btn);
+
         upload_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +62,7 @@ public class getting_started extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+               // intent.putExtra("imageID",R.id.upload_image);
                 startActivity(intent);
             }
         });
@@ -99,6 +103,8 @@ public class getting_started extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
 
             upload_image.setImageURI(data.getData());
+
+            Toast.makeText(this,"setImageURI",Toast.LENGTH_SHORT).show();
 
         }
     }
