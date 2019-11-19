@@ -128,5 +128,16 @@
         app:layout_constraintVertical_bias="0.528"
         app:srcCompat="@drawable/user" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="201dp"
+        android:layout_height="184dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.188"
+        app:srcCompat="@drawable/chat" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
