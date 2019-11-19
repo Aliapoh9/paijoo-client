@@ -78,6 +78,14 @@ public class SetPinLock extends AppCompatActivity implements PatternLockViewList
 
     }
 
+    @Override
+    public void onBackPressed(){
+
+
+        moveTaskToBack(true);
+    }
+
+
 
 
 }

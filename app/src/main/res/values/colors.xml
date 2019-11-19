@@ -5,7 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorpink">#EEBFC9</color>
     <color name="colorblack">#000000</color>
-    <color name="colorgray">#898988</color>
+    <color name="colorgray">#DEE2DE</color>
+    <color name="colorlightgray">#C6E0C5</color>
     <color name="colorCyan">#00b1dd</color>
     <color name="scrollBackground">#EEBFC9</color>
 
