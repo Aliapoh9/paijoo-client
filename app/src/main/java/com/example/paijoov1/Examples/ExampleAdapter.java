@@ -64,7 +64,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                             //ExampleAdapter.this.mListener.onDeleteClick(position);
                             //v.getContext().startActivity(new Intent(v.getContext(), Chat_from_home.class));
                             Log.d("test", "onItemClick: index = " + position);
-                            v.getContext().startActivity(new Intent(v.getContext(), Chat_from_home.class));
+                            Intent myIntent = new Intent(v.getContext(), Chat_from_home.class);
+                            myIntent.putExtra("chatIndex", position);
+                            v.getContext().startActivity(myIntent);
+
                         }
                     }
                 }
