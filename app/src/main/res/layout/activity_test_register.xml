@@ -58,6 +58,7 @@ tools:context=".test_register">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm"
+        android:background="@drawable/rounded_button"
 
         />
 
