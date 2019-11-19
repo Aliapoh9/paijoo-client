@@ -19,4 +19,7 @@ public interface PaijooService {
     @GET("/messages/{id}")
     Call<ArrayList<Conversation>> getMes(@Path("id") int id);
 
+    @POST("/messages/post")
+    Call<requestBody<TextContentRequestBody>> postMessage(@Body requestBody<TextContentRequestBody> rb);
+
 }
