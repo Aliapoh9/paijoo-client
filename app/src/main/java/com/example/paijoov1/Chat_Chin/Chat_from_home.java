@@ -34,11 +34,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Chat_from_home extends AppCompatActivity {
 
     private ArrayList<Conversation> convoList = new ArrayList<Conversation>();
+    private Retrofit rf;
+    private PaijooService pService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_from_home);
+        rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create()).build();
+
+        pService = rf.create(PaijooService.class);
         loadMessagesHis();
     }
 
@@ -100,10 +106,6 @@ public class Chat_from_home extends AppCompatActivity {
         catch (IOException e)
         {
             Log.e("cache-failureIO", e.getMessage());
-            Retrofit rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
-                    .addConverterFactory(GsonConverterFactory.create()).build();
-
-            PaijooService pService = rf.create(PaijooService.class);
 
             Call<ArrayList<Conversation>> call = pService.getMes(1);
             call.enqueue(new Callback<ArrayList<Conversation>>()
@@ -138,6 +140,10 @@ public class Chat_from_home extends AppCompatActivity {
         {
             Log.e("cache-failureOTHER", e.getMessage());
         }
+
+    }
+    public void sendPost()
+    {
 
     }
 
