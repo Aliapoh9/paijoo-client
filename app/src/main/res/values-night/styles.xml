@@ -8,5 +8,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
         <item name="colorAccent">@color/colorAccentNight</item>
         <item name="android:windowBackground">@color/bg_dark</item>
+        <item name ="android:textColor">@color/white</item>
+
     </style>
 </resources>

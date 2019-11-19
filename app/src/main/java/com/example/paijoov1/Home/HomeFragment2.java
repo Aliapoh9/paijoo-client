@@ -2,12 +2,14 @@ package com.example.paijoov1.Home;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -18,10 +20,16 @@ import com.example.paijoov1.Add_friend.add_friend;
 import com.example.paijoov1.Examples.ExampleAdapter;
 import com.example.paijoov1.Examples.ExampleItem;
 import com.example.paijoov1.R;
+import com.example.paijoov1.Upload_Pic.getting_started;
 
 import java.util.ArrayList;
 
 //import ng.com.obkm.bottomnavviewwithfragments.R;
+import com.example.paijoov1.Upload_Pic.getting_started;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class HomeFragment2 extends Fragment  {
@@ -30,6 +38,8 @@ public class HomeFragment2 extends Fragment  {
     private RecyclerView mRecyclerView;
     private ExampleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private CircleImageView circleImageView;
+    private ImageView imageView5;
 
 
     public HomeFragment2() {
@@ -59,6 +69,11 @@ public class HomeFragment2 extends Fragment  {
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        circleImageView = view.findViewById(R.id.circleImageView);
+
+
+
 
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
             @Override
