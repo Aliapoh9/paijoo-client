@@ -45,6 +45,7 @@ public class SettingsFragment extends Fragment {
         password_switch = view.findViewById(R.id.switch3);
         logout_btn = view.findViewById(R.id.logout_btn);
 
+
         SharedPreferences check_for_pin = getActivity().getSharedPreferences("check_for_pin",MODE_PRIVATE);
         String check_pin = check_for_pin.getString("checked","");
 
