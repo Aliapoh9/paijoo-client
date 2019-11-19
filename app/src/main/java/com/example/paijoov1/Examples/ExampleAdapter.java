@@ -1,6 +1,7 @@
 package com.example.paijoov1.Examples;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,8 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             //ExampleAdapter.this.mListener.onDeleteClick(position);
+                            //v.getContext().startActivity(new Intent(v.getContext(), Chat_from_home.class));
+                            Log.d("test", "onItemClick: index = " + position);
                             v.getContext().startActivity(new Intent(v.getContext(), Chat_from_home.class));
                         }
                     }

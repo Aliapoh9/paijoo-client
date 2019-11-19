@@ -3,10 +3,12 @@ package com.example.paijoov1.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,9 +45,10 @@ public class HomeFragment2 extends Fragment  {
         //scaleImage(image_box);
 
         mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem(R.drawable.boy, "Line 1", "Line 2"));
-        mExampleList.add(new ExampleItem(R.drawable.girl, "Line 3", "Line 4"));
-        mExampleList.add(new ExampleItem(R.drawable.man, "Line 5", "Line 6"));
+        mExampleList.add(new ExampleItem(R.drawable.boy, "Bob", "Back End Developer"));
+        mExampleList.add(new ExampleItem(R.drawable.man, "Chin", "Front End Developer"));
+        mExampleList.add(new ExampleItem(R.drawable.girl, "Rat", "Monopoly Expert"));
+        mExampleList.add(new ExampleItem(R.drawable.girl, "Toon", "Monopoly Expert"));
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -60,7 +63,8 @@ public class HomeFragment2 extends Fragment  {
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-
+                //Log.d("test", "onItemClick: index = " + position);
+                //Toast.makeText(getContext(),Log.d("test", "onItemClick: index = " + position),Toast.LENGTH_SHORT).show();
             }
 
             @Override

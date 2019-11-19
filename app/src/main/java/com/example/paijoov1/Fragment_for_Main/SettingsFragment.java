@@ -78,6 +78,7 @@ public class SettingsFragment extends Fragment {
                 editor2.putString("pin","false");
                 editor2.commit();
 
+                password_switch.setChecked(false);
 
                 Intent intent = new Intent(getActivity(), NewLoginActivity.class);
                 startActivity(intent);
@@ -121,9 +122,9 @@ public class SettingsFragment extends Fragment {
                     editor2.commit();
                     //restartApp();
                     //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    Intent pinlock = new Intent(getActivity().getApplicationContext(), SetPinLock.class);
+                    Intent set_pinlock = new Intent(getActivity().getApplicationContext(), SetPinLock.class);
                     //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    startActivity(pinlock);
+                    startActivity(set_pinlock);
 
 
                 } else {

@@ -53,7 +53,7 @@ public class NewLoginActivity extends AppCompatActivity {
         SharedPreferences check_for_pin = getSharedPreferences("check_for_pin",MODE_PRIVATE);
         String pin = check_for_pin.getString("checked","");
 
-        if (checkbox.equals("true") && check_pin.equals("true")) {
+        if (checkbox.equals("true") && pin.equals("true")) {
             Toast.makeText(this,"Enter with Password",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent (this, PinLock.class);
             startActivity(intent);
@@ -70,6 +70,7 @@ public class NewLoginActivity extends AppCompatActivity {
 
         else if (checkbox.equals("false")){
             Toast.makeText(getApplicationContext(),"Please sign in",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),check_pin,Toast.LENGTH_SHORT).show();
         }
 
 
