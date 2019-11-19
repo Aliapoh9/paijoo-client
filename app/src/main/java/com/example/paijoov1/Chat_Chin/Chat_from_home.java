@@ -123,7 +123,7 @@ public class Chat_from_home extends AppCompatActivity {
                         convoList = response.body();
                         for (Conversation c : convoList)
                         {
-                            saveToCache(Integer.toString(c.getConversationId()), c);
+                            saveToCache(Integer.toString(c.getConversationId()-1), c);
                         }
                         // Log.w("2.0 getFeed > Full json res wrapped in pretty printed gson => ",new GsonBuilder().setPrettyPrinting().create().toJson(response));
                         //messageHistory[0].setContent(MessageMap.get(0).getMessages().get(0).getContent().getContent());
