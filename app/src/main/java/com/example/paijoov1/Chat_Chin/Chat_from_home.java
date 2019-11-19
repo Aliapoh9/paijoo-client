@@ -37,7 +37,7 @@ public class Chat_from_home extends AppCompatActivity {
     private ArrayList<Conversation> convoList = new ArrayList<Conversation>();
     private Retrofit rf;
     private PaijooService pService;
-    private Intent myIntenk = getIntent();
+    private int chatIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,9 @@ public class Chat_from_home extends AppCompatActivity {
 
         pService = rf.create(PaijooService.class);
         loadMessagesHis();
-        Intent myIntenk = getIntent();
-        Log.d("Position", Integer.toString(myIntenk.getIntExtra("chatIndex", 0)));
+        chatIndex = getIntent().getIntExtra("chatIndex", 0);
+        Log.d("POS", Integer.toString(chatIndex));
+        //Log.d("Position", Integer.toString(getIntent().getIntExtra("chatIndex", 0)));
     }
 
     public void saveToCache(String key, Object ob)
@@ -103,15 +104,15 @@ public class Chat_from_home extends AppCompatActivity {
     public void loadMessagesHis()
     {
         try {
-            convoList.add((Conversation) Cache.readObject(this, "1"));
+            convoList.add((Conversation) Cache.readObject(this, Integer.toString(chatIndex)));
             Log.d("cache-success", "success!!!");
-            loadConversation(0);
+            loadConversation(chatIndex);
         }
         catch (IOException e)
         {
             Log.e("cache-failureIO", e.getMessage());
 
-            Call<ArrayList<Conversation>> call = pService.getMes(1);
+            Call<ArrayList<Conversation>> call = pService.getMes(chatIndex + 1);
             call.enqueue(new Callback<ArrayList<Conversation>>()
             {
                 @Override
@@ -126,7 +127,7 @@ public class Chat_from_home extends AppCompatActivity {
                         }
                         // Log.w("2.0 getFeed > Full json res wrapped in pretty printed gson => ",new GsonBuilder().setPrettyPrinting().create().toJson(response));
                         //messageHistory[0].setContent(MessageMap.get(0).getMessages().get(0).getContent().getContent());
-                        loadConversation(0);
+                        loadConversation(chatIndex);
                     }
                     else
                     {
