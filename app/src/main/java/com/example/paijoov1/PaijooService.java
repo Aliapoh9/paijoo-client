@@ -22,4 +22,11 @@ public interface PaijooService {
     @POST("/messages/post")
     Call<requestBody<TextContentRequestBody>> postMessage(@Body requestBody<TextContentRequestBody> rb);
 
+
+    @GET("users/{id}/friends")
+    Call<ArrayList<Users>> getFriendList(@Path("id") int id);
+
+    @POST("users/create")
+    Call<Users> register(@Body Users users);
+
 }
