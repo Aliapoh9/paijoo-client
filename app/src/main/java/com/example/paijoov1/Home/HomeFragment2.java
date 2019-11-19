@@ -94,7 +94,7 @@ public class HomeFragment2 extends Fragment  {
 
         //mExampleList.add(new ExampleItem(R.drawable.boy, "Bob", "Back End Developer"));
         //mExampleList.add(new ExampleItem(R.drawable.man, "Chin", "Front End Developer"));
-       // mExampleList.add(new ExampleItem(R.drawable.girl, "Rat", "Monopoly Expert"));
+        //mExampleList.add(new ExampleItem(R.drawable.girl, "Rat", "Monopoly Expert"));
         //mExampleList.add(new ExampleItem(R.drawable.girl, "Toon", "Monopoly Expert"));
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
