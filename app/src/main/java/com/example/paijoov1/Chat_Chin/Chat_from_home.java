@@ -1,6 +1,7 @@
 package com.example.paijoov1.Chat_Chin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ public class Chat_from_home extends AppCompatActivity {
     private ArrayList<Conversation> convoList = new ArrayList<Conversation>();
     private Retrofit rf;
     private PaijooService pService;
+    private Intent myIntenk = getIntent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class Chat_from_home extends AppCompatActivity {
 
         pService = rf.create(PaijooService.class);
         loadMessagesHis();
+        Intent myIntenk = getIntent();
+        Log.d("Position", Integer.toString(myIntenk.getIntExtra("chatIndex", 0)));
     }
 
     public void saveToCache(String key, Object ob)
