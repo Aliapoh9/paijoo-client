@@ -17,9 +17,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.paijoov1.Add_friend.add_friend;
 import com.example.paijoov1.Examples.ExampleAdapter;
 import com.example.paijoov1.Examples.ExampleItem;
+import com.example.paijoov1.PaijooService;
 import com.example.paijoov1.R;
+import com.example.paijoov1.Users;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 //import ng.com.obkm.bottomnavviewwithfragments.R;
 
@@ -30,11 +39,12 @@ public class HomeFragment2 extends Fragment  {
     private RecyclerView mRecyclerView;
     private ExampleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
+    private ArrayList<Users> friendList = new ArrayList<Users>();
 
     public HomeFragment2() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,11 +54,38 @@ public class HomeFragment2 extends Fragment  {
         //image_box = getActivity().findViewById(R.id.image_box);
         //scaleImage(image_box);
 
+        Retrofit rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create()).build();
+
+        PaijooService pService = rf.create(PaijooService.class);
+        Call<ArrayList<Users>> friendCall = pService.getFriendList(1);
+
+        friendCall.enqueue(new Callback<ArrayList<Users>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Users>> call, Response<ArrayList<Users>> response) {
+                friendList = response.body();
+                Log.d("Suc", "Done");
+
+                for (Users f : friendList)
+                {
+                    Log.d("add", "adding " + f.getUsername());
+                    mExampleList.add(new ExampleItem(R.drawable.boy, f.getUsername(), f.getSalt()));
+                }
+                mRecyclerView.setAdapter(mAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Users>> call, Throwable throwable) {
+
+            }
+        });
+
         mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem(R.drawable.boy, "Bob", "Back End Developer"));
-        mExampleList.add(new ExampleItem(R.drawable.man, "Chin", "Front End Developer"));
-        mExampleList.add(new ExampleItem(R.drawable.girl, "Rat", "Monopoly Expert"));
-        mExampleList.add(new ExampleItem(R.drawable.girl, "Toon", "Monopoly Expert"));
+
+        //mExampleList.add(new ExampleItem(R.drawable.boy, "Bob", "Back End Developer"));
+        //mExampleList.add(new ExampleItem(R.drawable.man, "Chin", "Front End Developer"));
+       // mExampleList.add(new ExampleItem(R.drawable.girl, "Rat", "Monopoly Expert"));
+        //mExampleList.add(new ExampleItem(R.drawable.girl, "Toon", "Monopoly Expert"));
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -58,7 +95,7 @@ public class HomeFragment2 extends Fragment  {
         add_friend_button = view.findViewById(R.id.add_friend_button);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+        //mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
             @Override
