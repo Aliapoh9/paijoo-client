@@ -149,31 +149,34 @@ public class Chat_from_home extends AppCompatActivity {
 
 
     public void sendMessage(View view) {
-        LinearLayout msg_view = (LinearLayout) findViewById(R.id.msg_view);
-        final ScrollView scrl_view = (ScrollView) findViewById(R.id.scrl);
-        EditText content = findViewById(R.id.message_box);
-        Message new_msg = new Message("User1", content.getText().toString());
+        EditText check = findViewById(R.id.message_box);
+        if (!check.getText().toString().trim().isEmpty()) {
+            LinearLayout msg_view = (LinearLayout) findViewById(R.id.msg_view);
+            final ScrollView scrl_view = (ScrollView) findViewById(R.id.scrl);
+            EditText content = findViewById(R.id.message_box);
+            Message new_msg = new Message("User1", content.getText().toString());
 
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View new_msg_view = inflater.inflate(R.layout.my_message, null);
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View new_msg_view = inflater.inflate(R.layout.my_message, null);
 
-        TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
-        TextView setTime = new_msg_view.findViewById(R.id.time_view);
-        String currentTime = Integer.toString(Calendar.getInstance().get(Calendar.HOUR_OF_DAY))
-                + ":" + Integer.toString(Calendar.getInstance().get(Calendar.MINUTE));
-        new_text.setText(new_msg.get_content());
-        setTime.setText(currentTime);
+            TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
+            TextView setTime = new_msg_view.findViewById(R.id.time_view);
+            String currentTime = Integer.toString(Calendar.getInstance().get(Calendar.HOUR_OF_DAY))
+                    + ":" + Integer.toString(Calendar.getInstance().get(Calendar.MINUTE));
+            new_text.setText(new_msg.get_content());
+            setTime.setText(currentTime);
 
-        msg_view.addView(new_msg_view);
+            msg_view.addView(new_msg_view);
 
-        content.setText("");
+            content.setText("");
 
-        // Scroll the scroll view down
-        scrl_view.post(new Runnable() {
-            public void run() {
-                scrl_view.fullScroll(scrl_view.FOCUS_DOWN);
-            }
-        });
+            // Scroll the scroll view down
+            scrl_view.post(new Runnable() {
+                public void run() {
+                    scrl_view.fullScroll(scrl_view.FOCUS_DOWN);
+                }
+            });
+        }
 
     }
 

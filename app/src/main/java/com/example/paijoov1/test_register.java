@@ -56,6 +56,7 @@ public class test_register extends AppCompatActivity {
                     editor.putString("remember","true");
                     editor.commit();
 
+
                     Intent intent = new Intent(getApplicationContext(), getting_started.class);
                     startActivity(intent);
                 }
