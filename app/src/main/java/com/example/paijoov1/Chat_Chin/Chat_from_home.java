@@ -168,7 +168,7 @@ public class Chat_from_home extends AppCompatActivity {
             mfsInt += 1;
 
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View new_msg_view = inflater.inflate(R.layout.my_message, null);
+            View new_msg_view = inflater.inflate(R.layout.other_message, null);
 
             TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
             TextView setTime = new_msg_view.findViewById(R.id.time_view);
