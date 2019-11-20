@@ -76,6 +76,11 @@ public class Conversation implements Serializable {
             @Expose
             private String content;
 
+            public TextContent()
+            {
+                
+            }
+
             public TextContent(Integer id, String content) {
                 this.id = id;
                 this.content = content;
