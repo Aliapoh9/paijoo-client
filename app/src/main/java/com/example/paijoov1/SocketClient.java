@@ -77,7 +77,7 @@ public class SocketClient{
         webSocketClient.connect();
     }
 
-    public void sendMessage(Conversation.Messages m){
+    public void sendMessage(MsgSocket.Messages m){
         ObjectMapper mapper = new ObjectMapper();
         String json = "error";
         try {
@@ -86,7 +86,7 @@ public class SocketClient{
         } catch (IOException e) {
             System.out.println("Error sending playEndOfStream message " + e);
         }
-        //webSocketClient.send(json);
+        webSocketClient.send(json);
 
 
     }
@@ -96,10 +96,5 @@ public class SocketClient{
 
     public static void main(String[] args) {
         SocketClient s = new SocketClient();
-        ArrayList<Conversation.Messages> ax = new ArrayList<Conversation.Messages>();
-        //s.createWebSocketClient(1, ax);
-        s.sendMessage(new Conversation.Messages(1, 1, 1, 1
-                , new Conversation.Messages.TextContent(1, "Bobo Boestar"), false
-                , false, Calendar.getInstance().toString(), 2));
     }
 }

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.paijoov1.Cache;
 import com.example.paijoov1.Conversation;
+import com.example.paijoov1.MsgSocket;
 import com.example.paijoov1.PaijooService;
 import com.example.paijoov1.R;
 import com.example.paijoov1.SocketClient;
@@ -205,8 +206,8 @@ public class Chat_from_home extends AppCompatActivity {
             msg_view.addView(new_msg_view);
 
             content.setText("");
-            Conversation.Messages new_messages = new Conversation.Messages(1, 1, 2, 1, new Conversation.Messages.TextContent(1, new_msg.get_content()), false, false,
-                    currentTime, chatIndex);
+            MsgSocket.Messages new_messages = new MsgSocket.Messages(1, 1, 2, 1, new MsgSocket.Messages.TextContent(1, new_msg.get_content()), false, false,
+                    Calendar.getInstance(), chatIndex);
             SocketC.sendMessage(new_messages);
 
 
