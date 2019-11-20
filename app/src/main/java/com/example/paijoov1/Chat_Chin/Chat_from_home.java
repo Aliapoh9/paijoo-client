@@ -175,6 +175,8 @@ public class Chat_from_home extends AppCompatActivity {
             new_text.setText(new_msg.getContent().getContent());
             setTime.setText(currentTime);
 
+            Log.d("MeesageIN", new_msg.getContent().getContent());
+
             msg_view.addView(new_msg_view);
         }
     }
