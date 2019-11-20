@@ -38,6 +38,8 @@ public class SocketClient{
                 try {
                     Conversation.Messages m = objectMapper.readValue(message, Conversation.Messages.class);
                     mArr.add(m);
+                    chaom_home.update();
+                    System.out.println(m.getContent().getContent());
 
                 } catch (IOException e) {
                     e.printStackTrace();
