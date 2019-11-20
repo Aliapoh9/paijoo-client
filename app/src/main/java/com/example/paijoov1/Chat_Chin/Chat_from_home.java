@@ -180,6 +180,11 @@ public class Chat_from_home extends AppCompatActivity {
             Log.d("MessageIN", new_msg.getContent().getContent());
 
             msg_view.addView(new_msg_view);
+            scrl_view.post(new Runnable() {
+                public void run() {
+                    scrl_view.fullScroll(scrl_view.FOCUS_DOWN);
+                }
+            });
         }
     }
 
