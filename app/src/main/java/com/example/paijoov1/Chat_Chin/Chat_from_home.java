@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -57,7 +58,7 @@ public class Chat_from_home extends AppCompatActivity {
         loadMessagesHis();
         chatIndex = getIntent().getIntExtra("chatIndex", 0);
         Log.d("POS", Integer.toString(chatIndex));
-        SocketC.createWebSocketClient(1, messagesFromSocket, this);
+        SocketC.createWebSocketClient(2, messagesFromSocket, this);
         //Log.d("Position", Integer.toString(getIntent().getIntExtra("chatIndex", 0)));
     }
 
@@ -174,6 +175,8 @@ public class Chat_from_home extends AppCompatActivity {
                     + ":" + Integer.toString(Calendar.getInstance().get(Calendar.MINUTE));
             new_text.setText(new_msg.getContent().getContent());
             setTime.setText(currentTime);
+
+            Log.d("MessageIN", new_msg.getContent().getContent());
 
             msg_view.addView(new_msg_view);
         }
