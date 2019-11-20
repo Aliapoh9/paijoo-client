@@ -34,7 +34,7 @@
         android:layout_marginStart="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/girl_in_chat">
+        app:srcCompat="@drawable/boy">
 
     </ImageView>
 
