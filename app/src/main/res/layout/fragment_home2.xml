@@ -39,7 +39,7 @@
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="62dp"
         android:layout_height="32dp"
-        android:text="Shaco"
+        android:text="Bey"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

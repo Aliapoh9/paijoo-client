@@ -50,7 +50,7 @@ public class Chat_from_home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_from_home);
         TextView headerTitle = findViewById(R.id.topBar);
-        headerTitle.setText("Bey");
+        headerTitle.setText("Shaco");
 
         rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
@@ -59,7 +59,7 @@ public class Chat_from_home extends AppCompatActivity {
         loadMessagesHis();
         chatIndex = getIntent().getIntExtra("chatIndex", 0);
         Log.d("POS", Integer.toString(chatIndex));
-        SocketC.createWebSocketClient(2, messagesFromSocket, this);
+        SocketC.createWebSocketClient(1, messagesFromSocket, this);
         //Log.d("Position", Integer.toString(getIntent().getIntExtra("chatIndex", 0)));
     }
 
