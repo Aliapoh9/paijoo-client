@@ -50,6 +50,11 @@ public class Conversation implements Serializable {
         @Expose
         private Integer conversation_id;
 
+        public Messages()
+        {
+
+        }
+
         public Messages(Integer id, Integer author_id, Integer recipient_id, Integer content_type, TextContent content, Boolean seen, Boolean received, String created_at, Integer conversation_id) {
             this.id = id;
             this.author_id = author_id;
