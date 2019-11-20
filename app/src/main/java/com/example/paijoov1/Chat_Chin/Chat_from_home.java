@@ -17,6 +17,7 @@ import com.example.paijoov1.Cache;
 import com.example.paijoov1.Conversation;
 import com.example.paijoov1.PaijooService;
 import com.example.paijoov1.R;
+import com.example.paijoov1.SocketClient;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -37,12 +38,17 @@ public class Chat_from_home extends AppCompatActivity {
     private ArrayList<Conversation> convoList = new ArrayList<Conversation>();
     private Retrofit rf;
     private PaijooService pService;
+    private SocketClient SocketC = new SocketClient();
+    private ArrayList<Conversation.Messages> messagesFromSocket = new ArrayList<Conversation.Messages>();
     private int chatIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_from_home);
+        TextView headerTitle = findViewById(R.id.topBar);
+        headerTitle.setText("Shaco");
+
         rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
@@ -50,6 +56,7 @@ public class Chat_from_home extends AppCompatActivity {
         loadMessagesHis();
         chatIndex = getIntent().getIntExtra("chatIndex", 0);
         Log.d("POS", Integer.toString(chatIndex));
+        SocketC.createWebSocketClient(1, messagesFromSocket);
         //Log.d("Position", Integer.toString(getIntent().getIntExtra("chatIndex", 0)));
     }
 
@@ -174,6 +181,9 @@ public class Chat_from_home extends AppCompatActivity {
             msg_view.addView(new_msg_view);
 
             content.setText("");
+            Conversation.Messages new_messages = new Conversation.Messages(1, 1, 2, 1, new Conversation.Messages.TextContent(1, new_msg.get_content()), false, false,
+                    currentTime, chatIndex);
+            SocketC.sendMessage(new_messages);
 
             // Scroll the scroll view down
             scrl_view.post(new Runnable() {

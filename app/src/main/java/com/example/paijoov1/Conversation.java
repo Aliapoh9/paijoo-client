@@ -50,6 +50,17 @@ public class Conversation implements Serializable {
         @Expose
         private Integer conversation_id;
 
+        public Messages(Integer id, Integer author_id, Integer recipient_id, Integer content_type, TextContent content, Boolean seen, Boolean received, String created_at, Integer conversation_id) {
+            this.id = id;
+            this.author_id = author_id;
+            this.recipient_id = recipient_id;
+            this.content_type = content_type;
+            this.content = content;
+            this.seen = seen;
+            this.received = received;
+            this.created_at = created_at;
+            this.conversation_id = conversation_id;
+        }
 
         public static class TextContent implements Serializable{
 
@@ -59,6 +70,11 @@ public class Conversation implements Serializable {
             @SerializedName("content")
             @Expose
             private String content;
+
+            public TextContent(Integer id, String content) {
+                this.id = id;
+                this.content = content;
+            }
 
             public String getContent() {
                 return content;
