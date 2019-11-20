@@ -16,7 +16,7 @@ public class SocketClient{
     public void createWebSocketClient(int id, ArrayList<Conversation.Messages> mar) {
         URI uri;
         try {
-            uri = new URI("ws://localhost:8888/conversation/" + id);
+            uri = new URI("ws://10.0.2.2:8888/conversation/" + id);
             mArr = mar;
         }
         catch (URISyntaxException e) {
