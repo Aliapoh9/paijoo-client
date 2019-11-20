@@ -68,7 +68,7 @@ public class HomeFragment2 extends Fragment  {
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
         PaijooService pService = rf.create(PaijooService.class);
-        Call<ArrayList<Users>> friendCall = pService.getFriendList(2);
+        Call<ArrayList<Users>> friendCall = pService.getFriendList(1);
 
         friendCall.enqueue(new Callback<ArrayList<Users>>() {
             @Override
