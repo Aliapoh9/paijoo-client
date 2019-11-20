@@ -1,5 +1,6 @@
 package com.example.paijoov1;
 
+import com.example.paijoov1.Chat_Chin.Chat_from_home;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.URI;
@@ -13,11 +14,12 @@ public class SocketClient{
     private WebSocketClient webSocketClient;
     private ArrayList<Conversation.Messages> mArr;
 
-    public void createWebSocketClient(int id, ArrayList<Conversation.Messages> mar) {
+    public void createWebSocketClient(int id, ArrayList<Conversation.Messages> mar, Chat_from_home chaom_home) {
         URI uri;
         try {
             uri = new URI("ws://10.0.2.2:8888/conversation/" + id);
             mArr = mar;
+            chaom_home.update();
         }
         catch (URISyntaxException e) {
             e.printStackTrace();
@@ -36,6 +38,7 @@ public class SocketClient{
                 try {
                     Conversation.Messages m = objectMapper.readValue(message, Conversation.Messages.class);
                     mArr.add(m);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -94,7 +97,7 @@ public class SocketClient{
     public static void main(String[] args) {
         SocketClient s = new SocketClient();
         ArrayList<Conversation.Messages> ax = new ArrayList<Conversation.Messages>();
-        s.createWebSocketClient(1, ax);
+        //s.createWebSocketClient(1, ax);
         s.sendMessage(new Conversation.Messages(1, 1, 1, 1
                 , new Conversation.Messages.TextContent(1, "Bobo Boestar"), false
                 , false, Calendar.getInstance().toString(), 2));

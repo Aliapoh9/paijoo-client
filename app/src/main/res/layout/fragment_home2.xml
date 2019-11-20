@@ -36,11 +36,11 @@
 
     <TextView
         android:id="@+id/time_view"
-        android:layout_width="47dp"
-        android:layout_height="27dp"
-        android:text="Bey"
-        android:textSize="24sp"
         style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="62dp"
+        android:layout_height="32dp"
+        android:text="Shaco"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.335"

@@ -40,6 +40,7 @@ public class Chat_from_home extends AppCompatActivity {
     private PaijooService pService;
     private SocketClient SocketC = new SocketClient();
     private ArrayList<Conversation.Messages> messagesFromSocket = new ArrayList<Conversation.Messages>();
+    private int mfsInt = 0;
     private int chatIndex;
 
     @Override
@@ -47,7 +48,7 @@ public class Chat_from_home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_from_home);
         TextView headerTitle = findViewById(R.id.topBar);
-        headerTitle.setText("Shaco");
+        headerTitle.setText("Bey");
 
         rf = new Retrofit.Builder().baseUrl("https://paijoo-api.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
@@ -56,7 +57,7 @@ public class Chat_from_home extends AppCompatActivity {
         loadMessagesHis();
         chatIndex = getIntent().getIntExtra("chatIndex", 0);
         Log.d("POS", Integer.toString(chatIndex));
-        SocketC.createWebSocketClient(1, messagesFromSocket);
+        SocketC.createWebSocketClient(1, messagesFromSocket, this);
         //Log.d("Position", Integer.toString(getIntent().getIntExtra("chatIndex", 0)));
     }
 
@@ -154,10 +155,30 @@ public class Chat_from_home extends AppCompatActivity {
         }
 
     }
-    public void sendPost()
+    public void update()
     {
+        LinearLayout msg_view = (LinearLayout) findViewById(R.id.msg_view);
+        final ScrollView scrl_view = (ScrollView) findViewById(R.id.scrl);
+        EditText content = findViewById(R.id.message_box);
 
+        if (messagesFromSocket.size() > 0) {
+            Conversation.Messages new_msg = messagesFromSocket.get(mfsInt);
+            mfsInt += 1;
+
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View new_msg_view = inflater.inflate(R.layout.my_message, null);
+
+            TextView new_text = (TextView) new_msg_view.findViewById(R.id.message_body);
+            TextView setTime = new_msg_view.findViewById(R.id.time_view);
+            String currentTime = Integer.toString(Calendar.getInstance().get(Calendar.HOUR_OF_DAY))
+                    + ":" + Integer.toString(Calendar.getInstance().get(Calendar.MINUTE));
+            new_text.setText(new_msg.getContent().getContent());
+            setTime.setText(currentTime);
+
+            msg_view.addView(new_msg_view);
+        }
     }
+
 
 
     public void sendMessage(View view) {
@@ -184,6 +205,7 @@ public class Chat_from_home extends AppCompatActivity {
             Conversation.Messages new_messages = new Conversation.Messages(1, 1, 2, 1, new Conversation.Messages.TextContent(1, new_msg.get_content()), false, false,
                     currentTime, chatIndex);
             SocketC.sendMessage(new_messages);
+
 
             // Scroll the scroll view down
             scrl_view.post(new Runnable() {
